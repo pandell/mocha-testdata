@@ -80,3 +80,54 @@ describe('testData', function() {
         ]);
     });
 });
+
+describe('testData.async', function() {
+    it('is a function', function() {
+        assert.strictEqual(typeof testData.async, 'function');
+    });
+
+    it('defines "it" as a chain function', function() {
+        assert.strictEqual(typeof testData.async(1).it, 'function');
+    });
+
+    it('defines "test" as a chain function', function() {
+        assert.strictEqual(typeof testData.async(1).test, 'function');
+    });
+
+    it('passes arguments to chained test functions after "done" callback', function() {
+        var testValues = [], testRuns = 0;
+        run(testData.async(1, 2).test('example test', function(done, val) {
+            testValues.push(val);
+            testRuns += 1;
+            done();
+        }));
+
+        assert.deepEqual(testValues, [1, 2]);
+        assert.strictEqual(testRuns, 2);
+    });
+
+    it('accepts a single array argument', function() {
+        var testValues = [], testRuns = 0;
+        run(testData.async([1, 2]).test('example test', function(done, val) {
+            testValues.push(val);
+            testRuns += 1;
+            done();
+        }));
+
+        assert.deepEqual(testValues, [1, 2]);
+        assert.strictEqual(testRuns, 2);
+    });
+
+    it('applies array arguments as test function parameters', function() {
+        var testValues = [], testRuns = 0;
+        run(testData.async([1, 2], [3, 4]).test('example test', function(done, a, b) {
+            testValues.push(a);
+            testValues.push(b);
+            testRuns += 1;
+            done();
+        }));
+
+        assert.deepEqual(testValues, [1, 2, 3, 4]);
+        assert.strictEqual(testRuns, 2);
+    });
+});
