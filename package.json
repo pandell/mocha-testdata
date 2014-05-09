@@ -4,7 +4,7 @@
   "description": "Multiple test cases per mocha test",
   "main": "index.js",
   "scripts": {
-    "test": "jshint index.js && mocha --ui bdd --reporter spec test.js"
+    "test": "mocha --ui bdd --reporter spec test.js"
   },
   "repository": {
     "type": "git",
@@ -24,8 +24,5 @@
   "homepage": "https://github.com/jgoz/mocha-testdata",
   "peerDependencies": {
     "mocha": "1.x"
-  },
-  "devDependencies": {
-    "jshint": "^2.5.0"
   }
 }
