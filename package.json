@@ -1,0 +1,31 @@
+{
+  "name": "mocha-testdata",
+  "version": "0.1.0",
+  "description": "Multiple test cases per mocha test",
+  "main": "index.js",
+  "scripts": {
+    "test": "jshint index.js && mocha --ui bdd --reporter spec test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jgoz/mocha-testdata.git"
+  },
+  "keywords": [
+    "mocha",
+    "testcase",
+    "testdata",
+    "given"
+  ],
+  "author": "John Gozde <john@gozde.ca>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jgoz/mocha-testdata/issues"
+  },
+  "homepage": "https://github.com/jgoz/mocha-testdata",
+  "peerDependencies": {
+    "mocha": "1.x"
+  },
+  "devDependencies": {
+    "jshint": "^2.5.0"
+  }
+}
