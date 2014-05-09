@@ -3,6 +3,13 @@ mocha-testdata [![Build Status](https://travis-ci.org/jgoz/mocha-testdata.svg?br
 
 Allows specifying multiple test cases for each [mocha](http://visionmedia.github.io/mocha/) test. This package was inspired by the `given` method in [Pavlov](https://github.com/mmonteleone/pavlov).
 
+Installation
+------------
+
+```
+$ npm install mocha-testdata
+```
+
 Example Usage
 -------------
 
