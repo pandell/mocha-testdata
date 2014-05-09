@@ -26,6 +26,6 @@
     "mocha": "1.x"
   },
   "devDependencies": {
-    "mocha": "^1.18.2"
+    "mocha": "~1.18"
   }
 }
