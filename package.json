@@ -24,5 +24,8 @@
   "homepage": "https://github.com/jgoz/mocha-testdata",
   "peerDependencies": {
     "mocha": "1.x"
+  },
+  "devDependencies": {
+    "mocha": "^1.18.2"
   }
 }
