@@ -1,6 +1,6 @@
 /*jshint loopfunc: true*/
 
-var test = require('mocha').test;
+var test = global.test || global.it || require('mocha').test;
 var util = require('util');
 
 function testData() {
