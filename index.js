@@ -22,7 +22,7 @@ function testData() {
         } else if (typeof value === 'object') {
             valueFmt = util.inspect(value);
         } else {
-            valueFmt = value.toString();
+            valueFmt = value;
         }
         return title + ' <' + valueFmt + '>';
     }

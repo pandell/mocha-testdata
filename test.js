@@ -63,7 +63,7 @@ describe('testData', function() {
     });
 
     it('formats titles with passed value', function() {
-        var tests = run(testData(1, 'a', null, true, function nop() {}, function() {}, [3, 4], {a: 1}).test('example test', function(/*val*/) {
+        var tests = run(testData(1, 'a', null, undefined, true, function nop() {}, function() {}, [3, 4], {a: 1}).test('example test', function(/*val*/) {
             assert.ok(true);
         }));
 
@@ -72,6 +72,7 @@ describe('testData', function() {
             'example test <1>',
             'example test <a>',
             'example test <null>',
+            'example test <undefined>',
             'example test <true>',
             'example test <nop()>',
             'example test <[function]>',
