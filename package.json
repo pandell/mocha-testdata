@@ -16,7 +16,7 @@
     "testdata",
     "given"
   ],
-  "author": "John Gozde <john@gozde.ca>",
+  "author": "John Gozde <johng@pandell.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/pandell/mocha-testdata/issues"
