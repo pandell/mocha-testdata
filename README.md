@@ -1,4 +1,4 @@
-mocha-testdata [![Build Status](https://travis-ci.org/jgoz/mocha-testdata.svg?branch=master)](https://travis-ci.org/jgoz/mocha-testdata) [![Dependency status](https://david-dm.org/jgoz/mocha-testdata.svg)](https://david-dm.org/jgoz/mocha-testdata)
+mocha-testdata [![Build Status](https://travis-ci.org/pandell/mocha-testdata.svg?branch=master)](https://travis-ci.org/pandell/mocha-testdata) [![Dependency status](https://david-dm.org/pandell/mocha-testdata.svg)](https://david-dm.org/pandell/mocha-testdata)
 ==============
 
 Allows specifying multiple test cases for each [mocha](http://visionmedia.github.io/mocha/) test. This package was inspired by the `given` method in [Pavlov](https://github.com/mmonteleone/pavlov).
@@ -104,4 +104,4 @@ suite('My async test suite', function() {
 License
 -------
 
-Released under the MIT license. See [LICENSE](https://github.com/jgoz/mocha-testdata/blob/master/LICENSE).
+Released under the MIT license. See [LICENSE](https://github.com/pandell/mocha-testdata/blob/master/LICENSE).
