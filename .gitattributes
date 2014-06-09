@@ -1,0 +1,19 @@
+# For detailed discussion of line-endings and .gitattributes see
+# http://stackoverflow.com/questions/170961/whats-the-best-crlf-handling-strategy-with-git
+
+# Set default behaviour, in case users don't have core.autocrlf set.
+* text=auto
+
+# Text files that should be normalized (convert crlf => lf)
+LICENSE       text
+.editorconfig text
+.gitignore    text
+.gitattr*     text
+.npmignore    text
+.travis.yml   text
+*.js          text
+*.json        text
+*.md          text
+
+# Binary files (left alone)
+*.png         binary
