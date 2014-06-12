@@ -1,12 +1,12 @@
-/*jshint loopfunc: true*/
+/*jslint node: true, vars: true */
 
-var test = global.test || global.it || require('mocha').test;
+'use strict';
+
 var util = require('util');
 
-function testData() {
-    'use strict';
+var test = global.test || global.it || require('mocha').test;
 
-    var async = arguments[0];
+function testData(async) {
     var args = Array.prototype.slice.call(arguments, 1);
     if (args.length === 0) {
         throw new Error('[test-data] at least one argument is required.');
@@ -28,16 +28,16 @@ function testData() {
     }
 
     function testWithData(title, fn) {
-        return args.map(function(arg) {
-            return test(formatTitle(title, arg), function() {
+        return args.map(function (arg) {
+            return test(formatTitle(title, arg), function () {
                 fn.apply(this, Array.isArray(arg) ? arg : [arg]);
             });
         });
     }
 
     function testWithDataAsync(title, fn) {
-        return args.map(function(arg) {
-            return test(formatTitle(title, arg), function(done) {
+        return args.map(function (arg) {
+            return test(formatTitle(title, arg), function (done) {
                 fn.apply(this, Array.isArray(arg) ? [done].concat(arg) : [done, arg]);
             });
         });
