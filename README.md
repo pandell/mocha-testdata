@@ -1,17 +1,24 @@
-mocha-testdata [![Build Status](https://travis-ci.org/pandell/mocha-testdata.svg?branch=master)](https://travis-ci.org/pandell/mocha-testdata) [![Dependency status](https://david-dm.org/pandell/mocha-testdata.svg)](https://david-dm.org/pandell/mocha-testdata)
-==============
+# [mocha](http://visionmedia.github.io/mocha/)-testdata
+
+[![Build status](https://travis-ci.org/pandell/mocha-testdata.svg?branch=master)](https://travis-ci.org/pandell/mocha-testdata) [!["devDependencies" status](https://david-dm.org/pandell/mocha-testdata/dev-status.svg)](https://david-dm.org/pandell/mocha-testdata#info=devDependencies)
+
+> Multiple test cases per mocha test
+
+[Git repository](https://github.com/pandell/mocha-testdata)
+
+[Changelog](https://github.com/pandell/mocha-testdata/releases)
 
 Allows specifying multiple test cases for each [mocha](http://visionmedia.github.io/mocha/) test. This package was inspired by the `given` method in [Pavlov](https://github.com/mmonteleone/pavlov).
 
-Installation
-------------
 
-```
-$ npm install mocha-testdata
+## Install
+
+```sh
+$ npm install --save-dev mocha-testdata
 ```
 
-Example Usage
--------------
+
+## Usage
 
 Here's a basic example with the BDD interface:
 
@@ -39,21 +46,24 @@ suite('My test suite', function() {
 });
 ```
 
-API
----
+## API
 
 Assuming:
+
 ```js
-var testData = require('mocha-testdata')
+var testData = require('mocha-testdata');
 ```
 
 ### `testData(data)`
 
 Defines set of test data for a test case.
 
-Params:
-  - `data`: (array or argument list) values to pass to the test
-    - If the arguments themselves are arrays, they will be passed as multiple arguments to the test function
+#### data
+
+_Type_: Array or argument list  
+_Default_: empty array
+
+Values to pass to the test. If the arguments themselves are arrays, they will be passed as multiple arguments to the test function.
 
 Returns:
   - `it`: define a test case (for use with BDD interface)
@@ -72,12 +82,14 @@ suite('My test suite', function() {
 });
 ```
 
+
 ### `testData.async(data)`
 
 Defines set of test data for an async test case.
 
-Params:  
-  (same as above)
+#### data
+
+Same as [`testData`](#testdatadata).
 
 Returns:
   - `it`: define an async test case (for use with BDD interface)
@@ -101,7 +113,18 @@ suite('My async test suite', function() {
 });
 ```
 
-License
--------
 
-Released under the MIT license. See [LICENSE](https://github.com/pandell/mocha-testdata/blob/master/LICENSE).
+## Contributing
+
+1. Clone git repository
+
+2. `npm install` (will install dev dependencies needed by the next step)
+
+3. `npm start` (will start a file system watcher that will re-lint JavaScript and JSON files + re-run all tests when change is detected)
+
+4. Make changes, don't forget to add tests, submit a pull request.
+
+
+## License
+
+MIT © [Pandell Technology](http://pandell.com/)
