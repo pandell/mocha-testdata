@@ -8,7 +8,9 @@
 
 [Changelog](https://github.com/pandell/mocha-testdata/releases)
 
-Allows specifying multiple test cases for each [mocha](http://visionmedia.github.io/mocha/) test. This package was inspired by the `given` method in [Pavlov](https://github.com/mmonteleone/pavlov).
+Allows specifying multiple test cases for each [mocha](http://visionmedia.github.io/mocha/) test.
+
+This package was inspired by the `given` method in [Pavlov](https://github.com/mmonteleone/pavlov).
 
 
 ## Install
