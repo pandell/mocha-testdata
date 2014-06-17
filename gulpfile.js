@@ -15,7 +15,7 @@ var testFiles = "test.js";
 gulp.task("lint", taskFromStreams(function () {
     return [
         gulp.src([rootFiles, testFiles]),
-        jshint(".jshintrc"),
+        jshint(),
         jslint.run(),
         jslint.report({ emitErrorAtEnd: true })
     ];
