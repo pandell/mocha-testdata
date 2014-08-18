@@ -20,7 +20,11 @@ function testData(async) {
         if (typeof value === 'function') {
             valueFmt = value.name ? value.name + '()' : '[function]';
         } else if (typeof value === 'object') {
-            valueFmt = util.inspect(value);
+            if (value && typeof value.description === 'string') {
+                valueFmt = value.description;
+            } else {
+                valueFmt = util.inspect(value);
+            }
         } else {
             valueFmt = value;
         }
