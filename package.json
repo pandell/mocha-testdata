@@ -1,6 +1,6 @@
 {
   "name": "mocha-testdata",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Multiple test cases per mocha test",
   "license": "MIT",
   "main": "index.js",
