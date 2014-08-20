@@ -4,7 +4,11 @@
 
 var util = require('util');
 
-var test = global.test || global.it || require('mocha').test;
+var test = global.test || global.it;
+
+if (!test) {
+    throw new Error("'mocha' must be required before 'mocha-testdata'");
+}
 
 function testData(async) {
     var args = Array.prototype.slice.call(arguments, 1);
