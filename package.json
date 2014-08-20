@@ -38,12 +38,12 @@
   "devDependencies": {
     "chalk": "0.*",
     "gulp": "^3.8",
-    "gulp-jshint": "^1.6",
+    "gulp-jshint": "^1.8",
     "gulp-jslint-simple": "0.*",
-    "gulp-mocha": "0.*",
+    "gulp-mocha": "^1.0",
     "gulp-taskfromstreams": "0.*",
     "gulp-util": "^3.0",
-    "mocha": "^1.20",
+    "mocha": "^1.21",
     "monitorctrlc": "0.*"
   }
 }
