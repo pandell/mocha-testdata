@@ -66,6 +66,7 @@ _Type_: Array or argument list
 _Default_: empty array
 
 Values to pass to the test. If the arguments themselves are arrays, they will be passed as multiple arguments to the test function.
+If a data item is an object, the `description` property is used to construct the individual test name.
 
 Returns:
   - `it`: define a test case (for use with BDD interface)
