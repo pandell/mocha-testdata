@@ -10,10 +10,19 @@ if (!test) {
     throw new Error("'mocha' must be required before 'mocha-testdata'");
 }
 
+function noCasesFailingTest(title) {
+    return test(title, function () {
+        throw new Error('moche-testdata used without test data.');
+    });
+}
+
 function testData(async) {
     var args = Array.prototype.slice.call(arguments, 1);
     if (args.length === 0) {
-        throw new Error('[test-data] at least one argument is required.');
+        return {
+            it: noCasesFailingTest,
+            test: noCasesFailingTest
+        };
     }
     if (args.length === 1 && Array.isArray(args[0])) {
         args = args[0];
