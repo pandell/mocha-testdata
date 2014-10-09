@@ -3,6 +3,7 @@
 'use strict';
 
 var util = require('util');
+var assert = require('assert');
 
 var test = global.test || global.it;
 
@@ -11,9 +12,11 @@ if (!test) {
 }
 
 function noCasesFailingTest(title) {
-    return test(title, function () {
-        throw new Error('moche-testdata used without test data.');
-    });
+    return [
+        test(title, function () {
+            assert.fail('mocha-testdata used without test data');
+        })
+    ];
 }
 
 function testData(async) {
