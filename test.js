@@ -7,6 +7,25 @@ var assert = require('assert');
 
 var testData = require('./index');
 
+var Runner = require('mocha').Runner;
+var Suite = require('mocha').Suite;
+
+function countFailures(tests, expectedFailures) {
+    var hook = {},
+        err = {},
+        suite = new Suite(),
+        runner;
+
+    tests.forEach(function (test) {
+        suite.addTest(test);
+    });
+
+    runner = new Runner(suite);
+    runner.failHook(hook, err);
+
+    assert.strictEqual(expectedFailures, runner.failures);
+}
+
 function nop() {
     return;
 }
@@ -23,8 +42,8 @@ describe('testData', function () {
         assert.strictEqual(typeof testData, 'function');
     });
 
-    it('throws if no arguments are provided', function () {
-        assert.throws(function () { testData(); }, /at least one argument is required/);
+    it('fails the test if no arguments are provided', function () {
+        countFailures(testData().test('example test', function () { assert.pass(); }), 1);
     });
 
     it('defines "it" as a chain function', function () {
