@@ -88,6 +88,16 @@ describe('testData', function () {
         assert.strictEqual(testRuns, 2);
     });
 
+    it('relays the return value of the test function', function () {
+        var tests = testData(1).test('example test', function () {
+            return 1337;
+        });
+
+        var testReturnValue = tests[0].fn();
+
+        assert.strictEqual(testReturnValue, 1337);
+    });
+
     it('formats titles with passed value', function () {
         var tests = run(testData(
             1,
@@ -134,6 +144,16 @@ describe('testData.async', function () {
 
     it('defines "test" as a chain function', function () {
         assert.strictEqual(typeof testData.async(1).test, 'function');
+    });
+
+    it('relays the return value of the test function', function () {
+        var tests = testData.async(1).test('example test', function () {
+            return 47;
+        });
+
+        var testReturnValue = tests[0].fn();
+
+        assert.strictEqual(testReturnValue, 47);
     });
 
     it('passes arguments to chained test functions after "done" callback', function () {
