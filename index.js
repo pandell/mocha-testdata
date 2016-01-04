@@ -50,7 +50,7 @@ function testData(async) {
     function testWithData(title, fn) {
         return args.map(function (arg) {
             return test(formatTitle(title, arg), function () {
-                fn.apply(this, Array.isArray(arg) ? arg : [arg]);
+                return fn.apply(this, Array.isArray(arg) ? arg : [arg]);
             });
         });
     }
@@ -58,7 +58,7 @@ function testData(async) {
     function testWithDataAsync(title, fn) {
         return args.map(function (arg) {
             return test(formatTitle(title, arg), function (done) {
-                fn.apply(this, Array.isArray(arg) ? [done].concat(arg) : [done, arg]);
+                return fn.apply(this, Array.isArray(arg) ? [done].concat(arg) : [done, arg]);
             });
         });
     }
