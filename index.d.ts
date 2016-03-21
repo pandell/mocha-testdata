@@ -1,4 +1,4 @@
-// TypeScript typings for "mocha-testdata@1.1.3".
+// TypeScript typings for "mocha-testdata@1.2.0".
 
 /** Fluent interface returned by "given". */
 interface MochaGivenMethods3<P1, P2, P3> {
