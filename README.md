@@ -24,12 +24,12 @@ $ npm install --save-dev mocha-testdata
 
 Here's a basic example with the BDD interface:
 
-```js
-var assert = require('assert');
-var given = require('mocha-testdata');
+```ts
+import * as assert from assert;
+import { given } from mocha-testdata;
 
-describe('My test suite', function() {
-  given('', false, null, undefined).it('passes if value is falsey', function(value) {
+describe('My test suite', function () {
+  given('', false, null, undefined).it('passes if value is falsey', function (value) {
     assert.ok(!value);
   });
 });
@@ -37,12 +37,12 @@ describe('My test suite', function() {
 
 And the same example with the TDD interface:
 
-```js
-var assert = require('assert');
-var withData = require('mocha-testdata');
+```ts
+import * as assert from assert;
+import { given } from mocha-testdata;
 
-suite('My test suite', function() {
-  withData('', false, null, undefined).test('passes if value is falsey', function(value) {
+suite('My test suite', function () {
+  withData('', false, null, undefined).test('passes if value is falsey', function (value) {
     assert.ok(!value);
   });
 });
@@ -52,11 +52,11 @@ suite('My test suite', function() {
 
 Assuming:
 
-```js
+```ts
 var testData = require('mocha-testdata');
 ```
 
-### `testData(data)`
+### `testData.given(data)`
 
 Defines set of test data for a test case.
 
@@ -74,25 +74,25 @@ Returns:
 
 Example with multiple arguments:
 
-```js
-var assert = require('assert');
-var testData = require('mocha-testdata');
+```ts
+import * as assert from assert;
+import { given } from mocha-testdata;
 
-suite('My test suite', function() {
-  testData([1, 2, 3], [3, 2, 1]).test('sum to 6', function(a, b, c) {
+suite('My test suite', function () {
+  given([1, 2, 3], [3, 2, 1]).test('sum to 6', function (a, b, c) {
     assert.strictEqual(a + b + c, 6);
   });
 });
 ```
 
 
-### `testData.async(data)`
+### `testData.givenAsync(data)`
 
 Defines set of test data for an async test case.
 
 #### data
 
-Same as [`testData`](#testdatadata).
+Same as [`testData.given(data)`](#data).
 
 Returns:
   - `it`: define an async test case (for use with BDD interface)
@@ -102,18 +102,54 @@ Async test cases take a callback as their first parameter; test data are passed 
 
 Example:
 
-```js
-var assert = require('assert');
-var testData = require('mocha-testdata');
+```ts
+import * as assert from assert;
+import { givenAsync } from mocha-testdata;
 
-suite('My async test suite', function() {
-  testData.async([1, 2, 3], [3, 2, 1]).test('sum to 6', function(done, a, b, c) {
+suite('My async test suite', function () {
+  givenAsync([1, 2, 3], [3, 2, 1]).test('sum to 6', function (done, a, b, c) {
     doSomethingAsync(function () {
       assert.strictEqual(a + b + c, 6);
       done();
     });
   });
 });
+```
+
+
+## TypeScript notes
+
+The following use-cases are currently supported by included TypeScript typings:
+
+```ts
+import { given, givenAsync } from "mocha-testdata";
+
+// simple data
+given(1, 2, 3, 4).it("One", arg => arg);
+givenAsync(1, 2, 3, 4).it("Two", (done, arg) => done());
+
+// simple predefined data
+const data = [1, 2, 3, 4];
+given(data).it("Three", arg => arg);
+givenAsync(data).it("Four", (done, arg) => done());
+
+// complex data
+given([1, 2], [3, 4]).it("Five", (a, b) => a);
+givenAsync([1, 2], [3, 4]).it("Six", (done, a, b) => done());
+
+// complex predefined data
+const complexData: { 0: number, 1: number }[] = [[1, 2], [3, 4]]; // explicit typing is required here, type inference is not good enough in TypeScript 1.8.9
+given(complexData).it("Seven", (a, b) => a);
+givenAsync(complexData).it("Eight", (done, a, b) => done());
+
+// structured data
+given({ a: 1, b: 2 }, { a: 1, b: 2 }).it("Nine", arg => arg.a);
+givenAsync({ a: 1, b: 2 }, { a: 1, b: 2 }).it("Ten", (done, arg) => arg.a && done());
+
+// structured predefined data
+const structuredData = [{ a: 1, b: 2 }, { a: 1, b: 2 }];
+given(structuredData).it("Eleven", arg => arg.a);
+givenAsync(structuredData).it("Twelve", (done, arg) => arg.a && done());
 ```
 
 
