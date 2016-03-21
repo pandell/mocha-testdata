@@ -73,3 +73,7 @@ function testData(async) {
 
 module.exports = testData.bind(null, false);
 module.exports.async = testData.bind(null, true);
+
+// named exports as per TypeScript typings
+module.exports.given = module.exports;
+module.exports.givenAsync = module.exports.async;
