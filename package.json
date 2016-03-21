@@ -53,6 +53,7 @@
     "gulp-mocha": "^2.2",
     "gulp-taskfromstreams": "^1.0",
     "gulp-util": "^3.0",
+    "jshint": "^2.9",
     "mocha": "^2.4",
     "monitorctrlc": "^1.0"
   }
