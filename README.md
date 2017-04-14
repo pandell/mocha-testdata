@@ -1,4 +1,4 @@
-# [mocha](http://visionmedia.github.io/mocha/)-testdata
+# [mocha](http://mochajs.org/)-testdata
 
 [![Build status](https://travis-ci.org/pandell/mocha-testdata.svg?branch=master)](https://travis-ci.org/pandell/mocha-testdata) [!["devDependencies" status](https://david-dm.org/pandell/mocha-testdata/dev-status.svg)](https://david-dm.org/pandell/mocha-testdata#info=devDependencies)
 
@@ -8,7 +8,7 @@
 
 [Changelog](https://github.com/pandell/mocha-testdata/releases)
 
-Allows specifying multiple test cases for each [mocha](http://visionmedia.github.io/mocha/) test.
+Allows specifying multiple test cases for each [mocha](http://mochajs.org/) test.
 
 This package was inspired by the `given` method in [Pavlov](https://github.com/mmonteleone/pavlov).
 
